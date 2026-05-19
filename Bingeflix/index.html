@@ -1,13 +1,47 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bingeflix</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/js/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BingeFlix</title>
+</head>
+<body>
+
+  <header>
+    <h1>BingeFlix 🍿</h1>
+    
+    <button id="lichtemodus"><span class="icoon">☀️</span> Thema</button>
+    <button class="favoriteBtn">🔖 Mijn Lijst</button>
+
+    <div class="dropdown">
+      <button class="dropbtn">Genres ▼</button>
+      <div class="dropdown-content">
+        <a href="#" data-genre-id="28">Actie</a>
+        <a href="#" data-genre-id="35">Comedie</a>
+        <a href="#" data-genre-id="27">Horror</a>
+      </div>
+    </div>
+
+    <form id="zoek-form">
+      <input type="text" id="zoek-input" placeholder="Zoek een film..." />
+      <button type="submit">Zoek</button>
+    </form>
+  </header>
+
+  <section class="sorteer-sectie">
+    <label><input type="radio" name="sort" value="title.asc"> A-Z</label>
+    <label><input type="radio" name="sort" value="release_date.desc"> Nieuwste eerst</label>
+    <label><input type="radio" name="sort" value="release_date.asc"> Oudste eerst</label>
+  </section>
+
+  <h2 class="sectie-titel">Populaire Films</h2>
+
+  <main class="films">
+    </main>
+
+  <div class="scroll-wacht" style="height: 20px;"></div>
+  <button id="terugNaarBoven" style="display: none; position: fixed; bottom: 20px; right: 20px;">⬆️</button>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
 </html>
