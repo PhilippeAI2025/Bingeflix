@@ -1,4 +1,4 @@
-const STORAGE_KEY = "cinescope_favorites";
+const STORAGE_KEY = "cinescope_Favorites";
 
 //Haalt de lijst met favorieten op
 export const getFavorite = () => {
@@ -8,24 +8,24 @@ export const getFavorite = () => {
  
 //Film toevoegen of verwijderen
 export const toggleFavorite = (movie) => {
-  let favorites = getfavorites();
+  let Favorites = getFavorites();
   
   //Zit de film al in de lijst?
-  const isAlFavorite = favorites.some(item => item.id === movie.id);
+  const isAlFavorite = Favorites.some(item => item.id === movie.id);
 
-  if (isAlfavorite) {
+  if (isAlFavorite) {
     // Verwijder de film
-    favorites = favorites.filter(item => item.id !== movie.id);
+    Favorites = Favorites.filter(item => item.id !== movie.id);
   } else {
     // Voeg de film toe aan de lijst
-    favorites.push(movie);
+    Favorites.push(movie);
   }
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(Favorites));
 };
 
 //Controleert of een specifieke film is opgeslagen 
-export const isfavorite = (movieId) => {
-  const favorites = getfavorites();
-  return favorites.some(item => item.id === movieId);
+export const isFavorite = (movieId) => {
+  const Favorites = getFavorites();
+  return Favorites.some(item => item.id === movieId);
 };
