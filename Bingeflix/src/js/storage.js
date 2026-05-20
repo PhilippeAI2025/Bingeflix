@@ -8,7 +8,7 @@ export const getFavorite = () => {
  
 //Film toevoegen of verwijderen
 export const toggleFavorite = (movie) => {
-  let Favorites = getFavorites();
+  let Favorites = getFavorite();
   
   //Zit de film al in de lijst?
   const isAlFavorite = Favorites.some(item => item.id === movie.id);
@@ -26,6 +26,6 @@ export const toggleFavorite = (movie) => {
 
 //Controleert of een specifieke film is opgeslagen 
 export const isFavorite = (movieId) => {
-  const Favorites = getFavorites();
+  const Favorites = getFavorite();
   return Favorites.some(item => item.id === movieId);
 };
