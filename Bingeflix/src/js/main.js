@@ -33,3 +33,99 @@
     });
   }
 
+
+// Films filteren op genre 
+  const genreLinks = document.querySelectorAll('.dropdown-content a');
+
+  genreLinks.forEach(function(link) {
+    link.addEventListener('click', async function(e) {
+      e.preventDefault();
+      
+      const genreId = link.getAttribute('data-genre-id');
+      const genreName = link.textContent;
+      
+      document.querySelector('.sectie-titel').textContent = `Genre: ${genreName}`;
+      
+      currentFilms = await fetchFilmsOnGenre(genreId);
+      renderFilms(currentFilms);
+    });
+  });
+
+  // Films uit favorieten tonen 
+  const favoriteBtn = document.querySelector('.favoriteBtn');
+
+  if (favoriteBtn) {
+    favoriteBtn.addEventListener('click', function() {
+      document.querySelector('.sectie-titel').textContent = "🔖 My List (Saved)";
+      
+      currentFilms = getFavorite(); 
+      renderFilms(currentFilms);
+    });
+  }
+
+  // Films sorteren op titel of release datum
+  const sortRadios = document.querySelectorAll('input[name="sort"]');
+
+  sortRadios.forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      const sortType = radio.value;
+      let sortedFilms = [...currentFilms];
+
+      // Eenvoudige sortering met standaard functies
+      if (sortType === 'title.asc') {
+        sortedFilms.sort(function(a, b) {
+          return a.title.localeCompare(b.title);
+        });
+      } else if (sortType === 'release_date.desc') {
+        sortedFilms.sort(function(a, b) {
+          return new Date(b.release_date) - new Date(a.release_date);
+        });
+      } else if (sortType === 'release_date.asc') {
+        sortedFilms.sort(function(a, b) {
+          return new Date(a.release_date) - new Date(b.release_date);
+        });
+      }
+
+      renderFilms(sortedFilms);
+    });
+  });
+
+  // Darkmode aan en uit zetten 
+  const themeToggleBtn = document.getElementById("lichtemodus");
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", function() {
+      document.body.classList.toggle("light");
+      
+      const icon = themeToggleBtn.querySelector(".icoon");
+      if (document.body.classList.contains("light")) {
+        icon.textContent = "🌙"; 
+      } else {
+        icon.textContent = "☀️"; 
+      }
+    });
+  }
+
+  // Terug naar boven knop en observer instellen om smooth te scrollen 
+  const backToTopBtn = document.getElementById('terugNaarBoven');
+  const scrollWaitArea = document.querySelector('.scroll-wacht');
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+  });
+
+  if (scrollWaitArea) {
+    observer.observe(scrollWaitArea);
+  }
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
