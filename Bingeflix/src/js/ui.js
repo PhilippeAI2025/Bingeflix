@@ -29,7 +29,7 @@ export function renderFilms(movies) {
         <div class="film-header">
           <span class="titel-text">${movie.title}</span>
           <span class="save-btn ${isAlreadySaved ? 'saved' : ''}" data-id="${movie.id}">
-            ${isAlreadySaved ? '🔖' : '📑'}
+            ${isAlreadySaved ? '♥' : '♡'}
           </span>
         </div>
         <div class="film-stats">
@@ -51,7 +51,7 @@ export function renderFilms(movies) {
       
       // Werk icoon direct bij op het scherm
       const isNuOpgeslagen = isFavorite(movie.id);
-      saveBtn.textContent = isNuOpgeslagen ? '🔖' : '📑';
+      saveBtn.textContent = isNuOpgeslagen ? '♥' : '♡';
       saveBtn.classList.toggle('saved', isNuOpgeslagen);
     });
 
