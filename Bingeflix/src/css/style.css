@@ -294,3 +294,39 @@ code {
     border-right-color: var(--border);
   }
 }
+
+/* Titel links, hartje rechts */
+.film-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  gap: 10px;
+  width: 100%;
+}
+
+/* Hartjes-knop */
+.save-btn {
+  cursor: pointer;
+  font-size: 24px;  
+  color: #666; 
+  transition: transform 0.2s ease, color 0.2s ease;
+  user-select: none;
+  margin-left: auto; 
+}
+
+/* 6 kaarten per rij */
+.films {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  padding: 15px;
+  max-width: 100%; 
+  box-sizing: border-box;
+}
+
+/* Posters goed schalen */
+.film-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
