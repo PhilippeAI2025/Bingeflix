@@ -33,13 +33,10 @@ export function renderFilms(movies) {
           </span>
         </div>
         <div class="film-stats">
-          <span>📅 ${movie.release_date || 'Onbekend'}</span>
           <span>⭐ ${movie.vote_average.toFixed(1)}/10</span>
-          <span class="stat-badge">${movie.original_language.toUpperCase()}</span>
         </div>
       </div>
       <div class="film-overview">
-        <strong>Plot:</strong><br>
         ${movie.overview || 'Geen samenvatting beschikbaar.'}
       </div>
     `;
