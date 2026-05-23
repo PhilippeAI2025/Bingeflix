@@ -129,3 +129,21 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+// DROPDOWN MENU OPENEN EN SLUITEN
+const dropBtn = document.querySelector('.dropbtn');
+const dropdownContent = document.querySelector('.dropdown-content');
+
+if (dropBtn && dropdownContent) {
+  dropBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdownContent.classList.toggle('show'); 
+  });
+
+  // Als je ergens anders op de pagina klikt: sluit het menu
+  document.addEventListener('click', function() {
+    if (dropdownContent.classList.contains('show')) {
+      dropdownContent.classList.remove('show');
+    }
+  });
+}
