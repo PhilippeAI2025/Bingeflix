@@ -13,6 +13,25 @@
   }
   startApp();
 
+  // Home page knop 
+  async function gaNaarHome() {
+    document.querySelector(".sectie-titel").textContent = "Populaire Films";
+
+    document.getElementById("zoek-input").value = "";
+
+    document.querySelectorAll('input[name="sort"]').forEach(radio => {
+      radio.checked = false;
+    });
+
+    currentFilms = await fetchPopularFilms();
+    renderFilms(currentFilms);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.getElementById("logo")
+    ?.addEventListener("click", gaNaarHome);
+
   //zoekfunctie, Luisteren naar de zoekbalk
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('search-input');
