@@ -113,6 +113,17 @@ header input[type="text"]:focus {
   border-color: var(--accent-hover);
 }
 
+/* Klikbaar logo */
+#logo {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* Hover effect */
+#logo:hover {
+  transform: scale(1.03);
+}
+
 /* =========================
    GENRES DROPDOWN MENU
 ========================= */
