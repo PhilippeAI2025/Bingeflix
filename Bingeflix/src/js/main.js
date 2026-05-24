@@ -75,7 +75,7 @@
 
   if (favoriteBtn) {
     favoriteBtn.addEventListener('click', function() {
-      document.querySelector('.sectie-titel').textContent = "🔖 My List (Saved)";
+      document.querySelector('.sectie-titel').textContent = "Favorieten";
       
       currentFilms = getFavorite(); 
       renderFilms(currentFilms);
