@@ -1,6 +1,6 @@
 # 🍿 BingeFlix
 
-Een filmwebapplicatie waarmee je populaire films kunt ontdekken, zoeken, filteren op genre, sorteren en opslaan in je favorieten.
+Een filmwebapplicatie als schoolproject waarmee je populaire films kunt ontdekken, zoeken, filteren op genre, sorteren en opslaan in je favorieten.
 
 ---
 
