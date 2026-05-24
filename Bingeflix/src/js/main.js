@@ -33,8 +33,8 @@
     ?.addEventListener("click", gaNaarHome);
 
   //zoekfunctie, Luisteren naar de zoekbalk
-  const searchForm = document.getElementById('search-form');
-  const searchInput = document.getElementById('search-input');
+  const searchForm = document.getElementById('zoek-form');
+  const searchInput = document.getElementById('zoek-input');
 
   if (searchForm && searchInput) {
     searchForm.addEventListener('submit', async function(e) {
